@@ -1,0 +1,429 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[LGR]{fontenc}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[greek]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{enumitem}   
+\usepackage{amstext} 
+
+
+\title{\textbf{ΕΡΓΑΣΙΑ 4} }
+\author{\textbf{Χρήστος Μπριστογιάννης \textlatin{sdi1900129}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\section*{Ερώτημα 2}
+
+\subsection*{2.α)}
+Σύμβολα Σταθερών: \textlatin{Yoda}\\
+Σύμβολα Κατηγορημάτων: \textlatin{JediMaster}\vspace{6mm}\\
+Αρχικά ορίζουμε οτ πεδίο της \textlatin{I}, που θα περιέχει τα αντικείμενα της εικόνας δηλαδή: \begin{center}
+\textlatin{ $\vline$ I $\vline$ = \{yoda\}}
+\end{center}
+Για τα σύμβολα των σταθερών, η \textlatin{I} κάνει τις εξής αντισοτιχίσεις: \begin{center}
+\textlatin{Yoda$^I$ = yoda}
+\end{center}
+H \textlatin{I} αντιστοιχίζει στο μοναδιαίο σύμβολο κατηγορήματος \textlatin{JediMaster} την ακόλουθη μοναδιαία σχέση: \textlatin{ \{$<$yoda$>$\} }\vspace{3mm}\\
+
+\subsection*{2.β)}
+\begin{itemize}
+\item Για τον τύπο $\phi 1$ από τον ορισμός της ικανοποίησης έχουμε:
+\begin{center}
+$\models_I$\textlatin{ JediMaster(Yoda)[s]}\hspace*{3mm} αν:\hspace*{3mm} $< \bar{s}$\textlatin{(Yoda)} $>\epsilon$ \textlatin{JediMaster}$^I$
+\end{center}
+Όμως, $\bar{s}$ (\textlatin{Yoda}) = \textlatin{Yoda}$^I$ = \textlatin{yoda} και \textlatin{JediMaster}$^I$ = \{$<$\textlatin{yoda}$>$\}, επομένως ισχύει ο $\phi 1$ από την Ι.
+\item Για τον τύπο $\phi 2$
+\begin{center}
+$\models_I(\exists x)$\textlatin{JediMaster($x$)[s]}
+\end{center}
+ο οποίος ισχύει αν υπάρχει $dx\epsilon\vline I \vline$ τέτοιο ώστε:
+\begin{center}
+$\models_I$\textlatin{JediMaster($x$)[s(x $\vline$ dx)]}
+\end{center}
+Το πεδίο της Ι είναι: $ \vline I \vline = \{ \textlatin{Yoda} \}$ επομένως μπορώ να αναθέσω στο $x$ την τιμή \textlatin{Yoda}. Άρα, έχω:
+\begin{center}
+$\models_I$\textlatin{JediMaster($x$)[s(x $\vline$ Yoda)]}
+\end{center}
+Η πρόταση αυτή ικανοποιείται και έχει αποδειχτεί στο παραπάνω ερώτημα. Άρα κατά συνέπεια ικανοποιείται και ο τύπος $\phi 2$ από την Ι. 
+\item Για τον τύπο $\phi 3$: 
+\begin{center}
+$\models_I(\forall x)$\textlatin{JediMaster($x$)[s]}
+\end{center}
+το οποίο θα ισχύει αν για κάθε $dx \epsilon \vline I \vline $: 
+\begin{center}
+$\models_I$\textlatin{JediMaster($x$)[s(x $\vline$ dx)]}
+\end{center}
+Το οποίο ισχύει καθώς το μοναδικό πεδίο της Ι είναι: $ \vline I \vline = \{ \textlatin{Yoda} \}$ και όπως αποδείχτηκε στην πρόταση $\phi 1$. Επομένως η $\phi 3 $ ικανοποιείται από την Ι.
+\begin{center}
+\end{center}
+\end{itemize}
+
+
+\section*{Ερώτημα 3}
+Εφαρμόζοντας των αλγόριθμο \textlatin{Unify} προκείπτουν oι παρακάτω πιο γενικοί ενοποιητές:
+\begin{itemize}
+\item $\{x/G(f(v)), u/f(v)\}$
+\item $\{x_1/G(H(A,B),H(A,B)),x_2/H(A,B),x_3/H(A,B),x_5/B,x_4B \}$
+\item $\{x_1/F(x_0,x_0),x_2/F(F(x_0,x_0),F(x_0,x_0)),...,x_n/F(x_{n-1},x_{n-1})\} $
+\end{itemize}
+
+
+
+\section*{Ερώτημα 4}
+\subsection*{4.α)}
+Σύμβολα κατηγορημάτων:\vspace{1mm}\\
+\textlatin{MemberOf(x,y)}: τo $x$ είναι μέλος του $y$\\
+\textlatin{isRight(x)}: το $x$ είναι δεξιός\\
+\textlatin{isLiberal(x)}: το $x$ είναι φιλελεύθερος\\
+\textlatin{likes(x,y)}: στο $x$ αρέσει το $y$
+\begin{enumerate}[label = \roman*) ]
+\item \textlatin{MemberOf(Kyriakos,Corona) $\wedge$ MemberOf(Alexis,Corona) \\ $ \wedge$ MemberOf(Nikos,Corona)}
+\item \textlatin{$\forall x$ ((MemberOf(x,Corona) $\wedge \neg$ isRight(x) $\Rightarrow$ isLiberal(x))}
+\item \textlatin{$\forall x$ (isRight(x) $\Rightarrow \neg$ Likes(x,Socialism)) }
+\item \textlatin{$\forall x$ ($\neg$Likes(x,Capitalism) $\Rightarrow\neg$ isLiberal(x))}
+\item \textlatin{$\forall x$ (Likes(Alexis,x) $\Leftrightarrow \neg$ Likes(Kyriakos,x))}
+\item \textlatin{Likes(Alexis,Capitalism) $\wedge$ Likes(Alexis,Socialism)}
+\item \textlatin{$\phi$: $\exists x$(MemberOf(x,Corona) $\wedge$ isLiberal(x) $\wedge\neg$ isRight(x))}
+\end{enumerate} 
+
+\subsection*{4.β)}
+Μετρατροπή σε \textlatin{CNF}:
+\begin{enumerate}[label = \roman*)]
+\item \textlatin{MemberOf(Kyriakos,Corona) , MemberOf(Alexis,Corona) , MemberOf(Nikos,Corona)}
+\item \textlatin{$\neg$MemberOf(x,Corona)$\vee$ isRight(x) $\vee$ isLiberal(x)}
+\item \textlatin{$\neg$isRight(x) $\vee\neg$ Likes(x,Socialism)}
+\item \textlatin{Likes(x,Capitalism)$\vee\neg$isLiberal(x))}
+\item \textlatin{$\neg$Likes(Alexis,x) $\vee\neg$ Likes(Kyriakos,x)\\Likes(Alexis,x) $\vee$ Likes(Kyriakos,x)}
+\item \textlatin{$\phi$: $\neg$MemberOf(x,Corona) $\vee\neg$ isLiberal(x) $\vee$ isRight(x)}
+\end{enumerate}
+Άρα έχω τις παρακάτω \textlatin{CNF} προτάσεις: 
+\begin{enumerate}
+\item\textlatin{MemberOf(Kyriakos,Corona)}
+\item\textlatin{MemberOf(Alexis,Corona)}
+\item\textlatin{MemberOf(Nikos,Corona)}
+\item\textlatin{$\neg$MemberOf(x,Corona)$\vee$ isRight(x) $\vee$ isLiberal(x)}
+\item\textlatin{$\neg$isRight(x) $\vee\neg$ Likes(x,Socialism)}
+\item\textlatin{Likes(x,Capitalism)$\vee\neg$isLiberal(x))}
+\item\textlatin{$\neg$Likes(Alexis,x) $\vee\neg$ Likes(Kyriakos,x)}
+\item\textlatin{Likes(Alexis,x) $\vee$ Likes(Kyriakos,x)}
+\item\textlatin{Likes(Alexis,Capitalism)}
+\item\textlatin{Likes(Alexis,Socialism)}
+\item\textlatin{$\neg\phi$: $\neg$MemberOf(x,Corona) $\vee\neg$ isLiberal(x) $\vee$ isRight(x)}
+\end{enumerate}
+Θέλω να αποδείξω ότι: \textlatin{KB$\models\phi$} επομένως:
+\begin{itemize}
+\item Από:\begin{center}
+$\neg$\textlatin{MemberOf(x,Corona)$\vee$isRight(x)$\vee$isLiberal(x)\\
+MemberOf(Alexis,Corona)}
+\end{center} με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{isRight(Alexis)$\vee$isLiberal(Alexis)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{
+$\neg$MemberOf(x,Corona)$\vee\neg$isLiberal(x)$\vee$isRight(x)\\
+MemberOf(Alexis,Corona)}
+\end{center} με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee$isRight(Alexis)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{isRight(Alexis)$\vee$isLiberal(Alexis)}\\
+\textlatin{$\neg$isRight(x)$\vee\neg$Likes(x,Socialism)}
+\end{center}
+ με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee$isRight(Alexis)}\\
+\textlatin{$\neg$isRight(x)$\vee\neg$Likes(x,Socialism)}
+\end{center}
+ με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)\\
+$\neg$isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+Προκύπτει ότι:\begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+Άρα:\begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)}
+\end{center}
+\item Από: \begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)\\
+Likes(Alexis,Socialism)}
+\end{center}
+Άρα προκύπτει ότι:\begin{center}
+$\{\}$
+\end{center}
+\end{itemize}
+
+\subsection*{4.γ)}
+\begin{itemize}
+\item Από:\begin{center}
+$\neg$\textlatin{MemberOf(x,Corona)$\vee$isRight(x)$\vee$isLiberal(x)\\
+MemberOf(Alexis,Corona)}
+\end{center} με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{isRight(Alexis)$\vee$isLiberal(Alexis)}\end{center}
+\item Από:\begin{center}
+\textlatin{
+$\neg$MemberOf(x,Corona)$\vee\neg$isLiberal(x)$\vee$isRight(x)$\vee$Answer(x)\\
+MemberOf(Alexis,Corona)}
+\end{center} με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee$isRight(Alexis)$\vee$Answer(x)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{isRight(Alexis)$\vee$isLiberal(Alexis)}\\
+\textlatin{$\neg$isRight(x)$\vee\neg$Likes(x,Socialism)}
+\end{center}
+ με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee$isRight(Alexis)$\vee$Answer(x)}\\
+\textlatin{$\neg$isRight(x)$\vee\neg$Likes(x,Socialism)}
+\end{center}
+ με αναθεση: \textlatin{x/Alexis} προκύπτει ότι: \begin{center}
+\textlatin{$\neg$isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)$\vee$Answer(x)}
+\end{center}
+\item Από:\begin{center}
+\textlatin{isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)\\
+$\neg$isLiberal(Alexis)$\vee\neg$Likes(Alexis,Socialism)}
+\end{center}
+Προκύπτει ότι:\begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)$\vee\neg$Likes(Alexis,Socialism)$\vee$Answer(x)}
+\end{center}
+Άρα:\begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)$\vee$Answer(x)}
+\end{center}
+\item Από: \begin{center}
+\textlatin{$\neg$Likes(Alexis,Socialism)$\vee$Answer(x)\\
+Likes(Alexis,Socialism)}
+\end{center}
+Άρα προκύπτει ότι:\begin{center}
+\textlatin{Answer(Alexis)}
+\end{center}
+\end{itemize}
+
+
+
+\section*{Ερώτημα 5}
+
+\subsection*{5.α)}
+Α:\\
+$(\forall x)(\forall s)(\forall t)(In(x,s)\wedge In(x,t) \Leftrightarrow In(x,Intersection(s,t)))$\\
+Απαλοιφή συνεπαγωγής:\vspace{1mm}\\
+$(\forall x)(\forall s)(\forall t)((\neg In(x,Intersection(s,t))\vee In(x,s))\wedge(\neg In(x,Intersection(s,t)\vee In(x,t))\wedge (\neg In(x,s)\vee\neg In(x,t)\vee In(x,Intersection(s,t)))$\\
+Απαλοιφή καθολικών ποσοδεικτών:\vspace{1mm}\\
+$(\neg In(x,Intersetcion(s,t))\vee In(x,s)\wedge (\neg In(x,Intersection(s,t))\vee In(x,t))\wedge\neg In(x,s) \vee\neg In(x,t)\vee In(x,Intersection(s,t))$\\
+Άρα τελικά:\vspace{1mm}\\
+$In(x,Intersection(s,t))\vee In(x,s)$\\
+$In(x,Intersecton(s,t))\vee In(x,t)$\\
+$In(x,s)\vee\neg In(x,t) \vee In(x,Intersection(s,t))$\vspace{1mm}\\
+
+Β:\\
+$(\forall s)(\forall t)((\forall x)(In(x,s)\Rightarrow In(x,t)\Rightarrow SubsetOf(s,t)))$\\
+Απαλοιφή συνεπαγωγών:\vspace{1mm}\\
+$(\forall s)(\forall t)\neg((\forall x)(\neg In(x,s)\vee In(x,t))\vee SubsetOf(s,t))$\\
+Μετακίνηση άρνησης προς τα μέσα:\vspace{1mm}\\
+$(\forall s)(\forall t)((\exists x)(In(x,s)\wedge\neg In(x,t))\vee SubsetOf(s,t))$\\
+\textlatin{Skolem:}\vspace{1mm}\\
+$(\forall s)(\forall t)((In(F(s,t),s)\wedge\neg In(F(s,t),t))\vee SubsetOf(s,t))$\\
+Απαλοιφή καθολικών ποσοδεικτών:\vspace{1mm}\\
+$(In(F(s,t),s)\wedge\neg In(F(s,t),t))\vee SubsetOf(s,t)$\\
+Άρα τελικά:\vspace{1mm}\\
+$In(F(s,t),s)\vee SubsetOf(s,t)$
+$\neg In(F(s,t),t)\vee SubsetOf(s,t)$\vspace{3mm}\\
+
+\textlatin{C:}:\\
+$(\neg\forall s)(\forall t)SubsetOf(Intersection(s,t),s)$\\
+Μετακίνηση άρνησης προς τα μέσα:\vspace{1mm}\\
+$(\exists s)(\exists t)\neg SubsetOf(Intersection(s,t),s)$\\
+\textlatin{Skolem}:\vspace{1mm}\\
+$\neg SubsetOf(Intersection(X,Y),X)$\vspace{3mm}\\
+
+\subsection*{5.β)}
+Από το ερώτημα α) προκείπτουν οι παρακάτω προτάσεις \textlatin{CNF}:
+\begin{itemize}
+\item$\neg In(x,Intersection(s,t))\vee In(x,s)$
+\item$\neg In(x,Intersection(s,t))\vee In(x,t)$
+\item$\neg In(x,s)\vee\neg In(x,t)\vee In(x,Intersection(s,t))$
+\item$In(F(s,t),s)\vee SubsetOf(s,t)$
+\item$\neg In(F(s,t),t)\vee SubsetOf(s,t)$
+\item$\neg SubsetOf(Intersection(X,Y),X)$
+\end{itemize}
+Θέλω να αποδείξω ότι η $C$ είναι λογική συνέπεια των Α και Β, επομένως έχω:\begin{itemize}
+\item Από:\begin{center}
+$\neg SubsetOf(Intersection(X,Y),X)$\\
+$In(F(s,t),s)\vee SubsetOf(s,t)$
+\end{center}
+Με ανάθεση: $s/Intersection(X,Y),t/X$ προκύπτει ότι:\begin{center}
+$In(F(Intersection(X,Y),X),Intersection(X,Y) $
+\end{center}
+\item Από :\begin{center}
+$\neg SubsetOf(Intersection(X,Y),X)$\\
+$\neg In(F(s,t),t)\vee SubsetOf(s,t)$
+\end{center}
+Με ανάθεση: $s/Intersection(X,Y),t/X $ προκύπτει ότι: \begin{center}
+$\neg In(F(Intersection(X,Y),X),X)$
+\end{center}
+\item Από :\begin{center}
+$\neg In(x,Intersextion(s,t))\vee In(x,s)$\\
+$In(F(Intersection(X,Y),X),Intersection(X,Y))$
+\end{center}
+Με ανάθεση: $x/F(Intersection(X,Y),X),s/X,t/Y$ προκύπτει ότι: \begin{center}
+$In(F(Intersection(X,Y),X),X)$\end{center}
+\item Από :\begin{center}
+$In(F(Intersection(X,Y),X),X)$\\
+$\neg In(F(Intersection(X,Y),X),X)$
+\end{center}
+Προκύπτει: \begin{center}
+$\{ \}$
+\end{center}
+\end{itemize}
+Επομένως η πρόταση $C$ είναι λογική συνέπεια των Α,Β
+
+
+\section*{Ερώτημα 6}
+Σύμβολα Κατηγορημάτων: \\
+\textlatin{isMan(x)} αν το \textlatin{x} είναι άνδρας\\
+\textlatin{isWoman(x)} αν το \textlatin{x} είναι γυναίκα\\
+\textlatin{isBeautiful(x)} αν το \textlatin{x} είναι όμορφο\\
+\textlatin{isRich(x)} αν το \textlatin{x} είναι πλούσιο\\
+\textlatin{isMuscular(x)} αν το \textlatin{x} είναι μυώδη\\
+\textlatin{isKind(x)} αν το \textlatin{x} είναι ευγενικό\\
+\textlatin{isHappy(x)} αν το \textlatin{x} είναι ευγενικό\\
+\textlatin{Likes(x,y)} αν στο \textlatin{x} αρέσει το \textlatin{y}\vspace{5mm}\\
+\textlatin{Horn Clauses:}\vspace{3mm}\\
+\textlatin{isBeautiful(Helen),\textlatin{isWoman(Helen)}}\\
+\textlatin{isBeautiful(John)}, \textlatin{isRich(John)},\textlatin{isMan(John)}\\
+\textlatin{isRich(Petros)}, \textlatin{isMuscular(Petros)},\textlatin{isMan(Petros)}\\
+\textlatin{isMuscular(Timos)}, \textlatin{isKind(Timos)},\textlatin{isMan(Timos)}\\
+\textlatin{isWoman(Katerina)}\\
+\textlatin{isRich(x)$\Rightarrow$ isHappy(x)}\\
+\textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ isBeautiful(y)$\Rightarrow$Likes(x,y)}\\
+\textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ Likes(x,y) $\wedge$ Likes(y,x) $\Rightarrow$ isHappy(x)}\\
+\textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ Likes(x,y) $\wedge$ Likes(y,x) $\Rightarrow$ isHappy(y)}\\
+\textlatin{isMan(x) $\wedge$ Likes(x,Katerina)$\Rightarrow$Likes(Katerina,x)}\\
+\textlatin{isMan(x) $\wedge$ isKind(x) $\wedge$ isRich(x) $\Rightarrow$Likes(Helen,x)}\\
+\textlatin{isMan(x) $\wedge$ isMuscular(x) $\wedge$ isBeautiful(x) $\Rightarrow$Likes(Helen,x)}\vspace{5mm}\\
+Για την επίλυση της άσκησης θα χρησιμοποίσω \textlatin{Forward Chaining}:\begin{itemize}
+\item "Ποιός αρε΄σιε σε ποιον\textlatin{;}" :
+\begin{itemize}
+\item Από: \begin{center}
+\textlatin{isBeautiful(Helen), Man(John)} και \\\ \textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ isBeautiful(y)$\Rightarrow$Likes(x,y)}
+\end{center}
+Με ανάθεση: \textlatin{x/John} και \textlatin{y/Helen} προκύπτει ότι: \textlatin{Likes(John,Helen)}
+\item Από: \begin{center}
+\textlatin{isBeautiful(Helen), Man(Petros)} και \\\ \textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ isBeautiful(y)$\Rightarrow$Likes(x,y)}
+\end{center}
+Με ανάθεση: \textlatin{x/Petros} και \textlatin{y/Helen} προκύπτει ότι: \textlatin{Likes(Petros,Helen)}
+\item Από: \begin{center}
+\textlatin{isBeautiful(Helen), Man(Timos)} και \\\ \textlatin{isMan(x) $\wedge$ isWoman(y) $\wedge$ isBeautiful(y)$\Rightarrow$Likes(x,y)}
+\end{center}
+Με ανάθεση: \textlatin{x/Timos} και \textlatin{y/Helen} προκύπτει ότι: \textlatin{Likes(Timos,Helen)}
+
+
+\end{itemize}
+\item "Ποιός είναι ευτυχισμένος\textlatin{;}" :
+\begin{itemize}
+\item\ Από: \textlatin{isRich(John)} και \textlatin{isRich(x)$\Rightarrow$isHappy(x)}\\
+Με ανάθεση: \textlatin{x/John} προκύπτει ότι: \textlatin{isHappy(John)}
+\item Από: \textlatin{isRich(Petros)} και \textlatin{isRich(x)$\Rightarrow$isHappy(x)}\\
+Με ανάθεση: \textlatin{x/Petros} προκύπτει ότι: \textlatin{isHappy(Petros)}
+\end{itemize}
+\end{itemize}
+
+
+
+
+\section*{Ερώτημα 8}
+
+\subsection*{8.α)}
+\begin{large}
+Σύμβολα Σταθερών: \\
+\end{large}
+\textlatin{AdministrativeUnit, Country, DecentralizedAdministration, Region, \\RegionalUnit, Municipality, MunicipalityUnit, MunicipalCommunity,\\ LocalCommunity}\vspace{3mm}\\
+\begin{large}
+Κατηγορήματα:\\
+\end{large}
+\textlatin{subClassOf(x,y)\\
+belongsTo(x,y)}
+Με τις ιδιότητες:\\
+\begin{itemize}
+\item\textlatin{$(\forall x,y,z)$(subClassOf(x,y) $\wedge$ subClassOf(y,z)$\Rightarrow$subClassOf(x,z))}
+\item\textlatin{$(\forall x,y,z)$(belongsTo(x,y) $\wedge$ belongsTo(y,z)$\Rightarrow$belongsTo(x,z))}
+\end{itemize}
+Στην συνέχεια μοντελοποιώ την οντολογία του σχήματος με κατάλληλουσ τύπους:
+\begin{itemize}
+\item\textlatin{belongsTo(MunicipalCommunity,MunicipalityUnit)}
+\item\textlatin{belongsTo(LocalCommunity,MunicipalityUnit)}
+\item\textlatin{belongsTo(MunicipalityUnit,Municipality)}
+\item\textlatin{belongsTo(MunicipalityUnit,RegionalUnit)}
+\item\textlatin{belongsTo(RegionalUnit,Region)}
+\item\textlatin{belongsTo(Region,DecentralizedAdministration)}
+\item\textlatin{belongsTo(DecentralizedAdministration,Country)}
+\item\textlatin{subClassOf(Country,AdministrativeUnit)}
+\item\textlatin{subClassOf(DecentralizedAdministration,AdministrativeUnit)}
+\item\textlatin{subClassOf(Region,AdministrativeUnit)}
+\item\textlatin{subClassOf(RegionUnit,AdministrativeUnit)}
+\item\textlatin{subClassOf(Municipality,AdministrativeUnit)}
+\item\textlatin{subClassOf(MunicipalCommunity,AdministrativeUnit)}
+\item\textlatin{subClassOf(MunicipalityUnit,AdministrativeUnit)}
+\item\textlatin{subClassOf(LocalCommunity,AdministrativeUnit)}
+\end{itemize}
+
+\subsection*{8.β)}
+Προσθέτω στο α) το κατηγόρημα: \textlatin{partOf(x,y)}, το $x$ είναι μέρος/στοιχείο του $y$\\
+Το οποίο έχει ιδιότητα:\\
+\textlatin{$(\forall x,y,z)(partOf(x,Class)\wedge partOf(y,Class)\wedge partOf(z,x)\wedge subClassOf(x,y) \Rightarrow partOf(z,y))$}\\
+Προσθέτω επίσης στην οντολογία την κλάση Class, η οποία θα είναι η κλάση όλως των κλάσεων, κάτι το οποίο θα αναπαραστίσω με τον παρακάτω τύπο:\\
+\textlatin{(($\forall x$)(subClassOf(x,AdministrativeUnit)$\Rightarrow$partOf(x,Class)))$\wedge$ partOf(AdministrativeUnit,Class)}\vspace{3mm}\\
+
+\subsection*{8.γ)}
+Θα προσθέσω στην οντολογία το \textlatin{MunicipalityofAthens} και ο τύπος που θα εκφράζει ότι είναι στοιχείο της κλάσης \textlatin{Municipality} σύμφωνα με την ιδιότητα που όρισα παραπάνω θα είναι:\\
+\textlatin{partOf(MunicipalityofAthens,Municipality)}
+
+
+
+\section*{Ερώτημα 9}
+
+\subsection*{9.α)}
+\begin{itemize}
+\item\textlatin{isPerson(Donald)}
+\item\textlatin{isPerson(Melania)}
+\item\textlatin{isPerson(Ivanka)}
+\item\textlatin{isPerson(Barron)}
+\item\textlatin{Loves(Donald,Donald)}
+\item\textlatin{Loves(Donald,Ivanka)}
+\item\textlatin{Loves(Ivanka,Donald)}
+\item\textlatin{Loves(Melania,Barron)}
+\item\textlatin{Loves(Barron,Melania)}
+\end{itemize}
+
+\subsection*{9.β)}
+Για να εποδειχθούν οι προτάσεις της εκφώνησης θα πρέπει να προστεθούν στην βάση γνώσης οι παρακατω τύποι:\vspace{3mm}\\
+\textlatin{Predicate Completion:}\vspace{1mm}\\
+\textlatin{$\forall x$ ((x = Donald $\vee$ x = Ivanka) $\Leftrightarrow$ Loves(x,Donald)))}\\
+\textlatin{$\forall x$ ((x = Barron $\Leftrightarrow$ Loves(x,Melania)))}\\
+\textlatin{$\forall x$ ((x = Melania $\Leftrightarrow$ Loves(x,Barron)))}\\
+\textlatin{$\forall x$ ((x = Donald $\Leftrightarrow$ Loves(x,Ivanka)))}\vspace{3mm}\\
+\textlatin{Domain Closure Axiom:}\vspace{1mm}\\
+\textlatin{$\forall x$(x = Donald $\vee$ x = Melania $\vee$ x = Ivanka  $\vee$ x = Barron)}\vspace{3mm}\\
+Τελος πρέπει διαφορετικά άτομα να έχουν διαφορετικά ονόματα (\textlatin{Unique Name Assumpion})
+\end{document}
+
+
+
+
+
+
+
